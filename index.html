@@ -11,7 +11,7 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
     />
     <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,500&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,600&display=swap"
       rel="stylesheet"
     />
 
@@ -179,10 +179,28 @@
         margin-top: 10px;
         border-radius: 10px;
       }
+
+      .music-button {
+        margin: 10px auto;
+        padding: 8px 16px;
+        font-size: 14px;
+        background-color: #4caf50;
+        color: white;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        display: block;
+      }
     </style>
   </head>
 
   <body>
+    <!-- Nhạc nền -->
+    <audio id="bg-music" loop>
+      <source src="ngay-ay-ban-va-toi.mp3" type="audio/mpeg" />
+      Trình duyệt không hỗ trợ nhạc nền.
+    </audio>
+
     <div class="card-container">
       <div class="card" id="myCard">
         <!-- MẶT TRƯỚC -->
@@ -199,31 +217,12 @@
               alt="Ảnh đại diện"
             />
           </div>
+
+          <!-- Nút bật nhạc dưới AVT -->
+          <button id="play-music-btn" class="music-button">Bật nhạc 🎵</button>
+
           <div class="content">
             <div class="truong-name">nguyen bui truong</div>
-            <!-- Nhạc nền -->
-            <audio id="bg-music" loop>
-              <source src="ngay-ay-ban-va-toi.mp3" type="audio/mpeg" />
-              Trình duyệt không hỗ trợ nhạc nền.
-            </audio>
-
-            <!-- Nút bật nhạc -->
-            <button
-              id="play-music-btn"
-              style="
-                margin-top: 20px;
-                padding: 10px 20px;
-                font-size: 16px;
-                background-color: #4caf50;
-                color: white;
-                border: none;
-                border-radius: 6px;
-                cursor: pointer;
-              "
-            >
-              Bật nhạc 🎵
-            </button>
-
             <div class="name">Chào mừng bạn!</div>
             <p class="profession">nbt</p>
             <p class="front-motto">
@@ -273,16 +272,9 @@
                 >
               </div>
 
-              <div
-                class="qr-section"
-                style="text-align: center; margin-top: 15px"
-              >
+              <div class="qr-section">
                 <h4>thông tin thanh toán</h4>
-                <img
-                  src="qr-payment.png"
-                  alt="QR Thanh toán"
-                  style="width: 150px"
-                />
+                <img src="qr-payment.png" alt="QR Thanh toán" width="150" />
                 <p><strong>Tên:</strong> Trương Thị Lam</p>
                 <p><strong>SĐT:</strong> ******142</p>
                 <p><strong>Hỗ trợ:</strong> MoMo & Ngân hàng</p>
