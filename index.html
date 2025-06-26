@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Card Flip Thông Tin</title>
+
+    <!-- Font Awesome & Google Fonts -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,500&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-family: "Poppins", sans-serif;
+        background: #f0f0f0;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .card-container {
+        perspective: 1000px;
+        width: 100%;
+        max-width: 400px;
+      }
+
+      .card {
+        width: 100%;
+        height: 600px;
+        transition: transform 0.8s;
+        transform-style: preserve-3d;
+        position: relative;
+        border-radius: 10px;
+      }
+
+      .card.is-flipped {
+        transform: rotateY(180deg);
+      }
+
+      .front,
+      .back {
+        backface-visibility: hidden;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        border-radius: 10px;
+        background-color: #fff;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        overflow: hidden;
+        padding-bottom: 20px;
+      }
+
+      .front {
+        z-index: 2;
+      }
+
+      .back {
+        transform: rotateY(180deg);
+        z-index: 1;
+      }
+
+      .cover img {
+        width: 100%;
+        height: 120px;
+        object-fit: cover;
+      }
+
+      .user {
+        width: 120px;
+        height: 120px;
+        margin: -60px auto 0;
+        border-radius: 50%;
+        overflow: hidden;
+        border: 4px solid #fff;
+      }
+
+      .user img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .content {
+        padding: 20px;
+        text-align: center;
+      }
+
+      .truong-name {
+        font-family: "Poppins", sans-serif;
+        font-style: italic;
+        font-weight: 500;
+        font-size: 24px;
+        color: #2c3e50;
+        margin-bottom: 5px;
+      }
+
+      .name {
+        font-size: 24px;
+        font-weight: bold;
+        margin-top: 10px;
+      }
+
+      .profession {
+        color: #888;
+        margin-bottom: 10px;
+      }
+
+      .motto,
+      .front-motto {
+        font-size: 14px;
+        color: #777;
+        margin-top: 10px;
+      }
+
+      .footer {
+        margin-top: 20px;
+      }
+
+      .rating i {
+        color: #ffb400;
+      }
+
+      .flip-button {
+        margin-top: 20px;
+        padding: 10px 20px;
+        font-size: 16px;
+        background: #3472f7;
+        color: white;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+      }
+
+      .flip-button:hover {
+        background: #265fd0;
+      }
+
+      a {
+        text-decoration: none;
+        color: #333;
+      }
+
+      .info-box {
+        border: 1px solid #ccc;
+        border-radius: 10px;
+        padding: 20px;
+        text-align: left;
+        background-color: #fafafa;
+        margin-top: 15px;
+      }
+
+      .info-item {
+        display: flex;
+        align-items: center;
+        margin-bottom: 10px;
+      }
+
+      .info-item img,
+      .info-item i {
+        width: 20px;
+        margin-right: 10px;
+      }
+
+      .qr-section img {
+        margin-top: 10px;
+        border-radius: 10px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="card-container">
+      <div class="card" id="myCard">
+        <!-- MẶT TRƯỚC -->
+        <div class="front">
+          <div class="cover">
+            <img
+              src="z6744383804736_249d81a5631d826d5b446b1c06b9c269.jpg"
+              alt="Ảnh bìa"
+            />
+          </div>
+          <div class="user">
+            <img
+              src="z6744383795253_20c780cdda032c77cf79f877c3c28916.jpg"
+              alt="Ảnh đại diện"
+            />
+          </div>
+          <div class="content">
+            <div class="truong-name">nguyen bui truong</div>
+            <div class="name">Chào mừng bạn!</div>
+            <p class="profession">@starquoc</p>
+            <p class="front-motto">
+              Hãy theo đuổi đam mê, thành công sẽ theo đuổi bạn.
+            </p>
+            <div class="footer">
+              <div class="rating">
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- MẶT SAU -->
+        <div class="back">
+          <div class="content">
+            <div class="motto">"Không có gì là không thể!"</div>
+
+            <div class="info-box">
+              <p><strong>Họ tên:</strong> Nguyen Bui Truong</p>
+
+              <div class="info-item">
+                <img src="zalo-icon.png" alt="Zalo" />
+                <a href="https://zalo.me/0985204819" target="_blank"
+                  >Zalo: 0985 204 819</a
+                >
+              </div>
+
+              <div class="info-item">
+                <i class="fa fa-facebook"></i>
+                <a
+                  href="https://www.facebook.com/ngbuitruongg01"
+                  target="_blank"
+                  >Facebook: nguyen bui truong</a
+                >
+              </div>
+
+              <div class="info-item">
+                <i class="fa fa-envelope-o"></i>
+                <a href="mailto:nbtruong207@gmail.com"
+                  >Email: nbtruong207@gmail.com</a
+                >
+              </div>
+
+              <div
+                class="qr-section"
+                style="text-align: center; margin-top: 15px"
+              >
+                <h4>thông tin thanh toán</h4>
+                <img
+                  src="qr-payment.png"
+                  alt="QR Thanh toán"
+                  style="width: 150px"
+                />
+                <p><strong>Tên:</strong> Trương Thị Lam</p>
+                <p><strong>SĐT:</strong> ******142</p>
+                <p><strong>Hỗ trợ:</strong> MoMo & Ngân hàng</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- NÚT LẬT THẺ -->
+      <button class="flip-button" onclick="flipCard()">Lật thẻ</button>
+    </div>
+
+    <script>
+      function flipCard() {
+        document.getElementById("myCard").classList.toggle("is-flipped");
+      }
+    </script>
+  </body>
+</html>
