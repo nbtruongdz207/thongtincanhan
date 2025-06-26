@@ -102,7 +102,7 @@
       .truong-name {
         font-family: "Poppins", sans-serif;
         font-style: italic;
-        font-weight: 500;
+        font-weight: 600;
         font-size: 24px;
         color: #2c3e50;
         margin-bottom: 5px;
@@ -183,45 +183,29 @@
   </head>
 
   <body>
-<!-- Nhạc nền -->
-<audio id="bg-music" loop>
-  <source src="ngay-ay-ban-va-toi.mp3" type="audio/mpeg" />
-  Trình duyệt không hỗ trợ nhạc nền.
-</audio>
+    <!-- Nhạc nền -->
+    <audio id="bg-music" loop>
+      <source src="ngay-ay-ban-va-toi.mp3" type="audio/mpeg" />
+      Trình duyệt không hỗ trợ nhạc nền.
+    </audio>
 
-<!-- Nút bật nhạc -->
-<button id="play-music-btn" style="
-  margin-top: 20px;
-  padding: 10px 20px;
-  font-size: 16px;
-  background-color: #4caf50;
-  color: white;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-">
-  Bật nhạc 🎵
-</button>
+    <!-- Nút bật nhạc -->
+    <button
+      id="play-music-btn"
+      style="
+        margin-top: 20px;
+        padding: 10px 20px;
+        font-size: 16px;
+        background-color: #4caf50;
+        color: white;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+      "
+    >
+      Bật nhạc 🎵
+    </button>
 
-<script>
-  const audio = document.getElementById("bg-music");
-  const playBtn = document.getElementById("play-music-btn");
-
-  // Giảm âm lượng ban đầu
-  audio.volume = 0.5;
-
-  playBtn.addEventListener("click", function () {
-    audio.play()
-      .then(() => {
-        playBtn.textContent = "Đang phát 🎶";
-        playBtn.disabled = true;
-      })
-      .catch((err) => {
-        alert("Không thể phát nhạc: " + err.message);
-      });
-  });
-</script>
-    </script>
     <div class="card-container">
       <div class="card" id="myCard">
         <!-- MẶT TRƯỚC -->
@@ -315,6 +299,23 @@
       function flipCard() {
         document.getElementById("myCard").classList.toggle("is-flipped");
       }
+
+      const audio = document.getElementById("bg-music");
+      const playBtn = document.getElementById("play-music-btn");
+
+      audio.volume = 0.5;
+
+      playBtn.addEventListener("click", function () {
+        audio
+          .play()
+          .then(() => {
+            playBtn.textContent = "Đang phát 🎶";
+            playBtn.disabled = true;
+          })
+          .catch((err) => {
+            alert("Không thể phát nhạc: " + err.message);
+          });
+      });
     </script>
   </body>
 </html>
